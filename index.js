@@ -406,12 +406,14 @@ bot.action("confirm_cancel", async (ctx) => {
     ctx.reply("Повертаємось у головне меню:", getMainMenu(userId));
 });
 
-const port = process.env.PORT || 8080;
 
-bot.launch({
-  webhook: {
-    domain: "https://viknastylebot-production.up.railway.app",
-    port: port,
-  }
-});
-console.log("🤖 Бот запущено на ${domain}:${port}");
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 8080;
+const domain = "https://viknastylebot-production.up.railway.app";
+
+app.use(bot.webhookCallback('/')); // обробляє POST від Telegram
+
+
+app.get('/', (req, res) => res.send('🤖 Бот активний!'));
+app.listen(port, () => console.log(`🤖 Бот запущено на ${domain}`));
