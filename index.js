@@ -406,5 +406,12 @@ bot.action("confirm_cancel", async (ctx) => {
     ctx.reply("Повертаємось у головне меню:", getMainMenu(userId));
 });
 
-bot.launch();
-console.log("🤖 Бот запущено");
+const port = process.env.PORT || 8080;
+
+bot.launch({
+  webhook: {
+    domain: "https://viknastylebot-production.up.railway.app",
+    port: port,
+  }
+});
+console.log("🤖 Бот запущено на ${domain}:${port}");
