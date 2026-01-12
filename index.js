@@ -410,7 +410,7 @@ bot.action("confirm_cancel", async (ctx) => {
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
-const domain = "https://viknastyle-bot.onrender.com";
+const domain = "https://viknastylebot-production.up.railway.app";
 
 app.use(bot.webhookCallback('/')); // обробляє POST від Telegram
 
