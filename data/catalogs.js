@@ -1,5 +1,9 @@
 const catalogs = [
     {
+        label: "Каталог 2026",
+        file: "catalog2026.pdf"
+    },
+    {
         label: "Каталог Tehno Steel 2024",
         file: "12e6674d5cd5e0de2b711.pdf"
     },
